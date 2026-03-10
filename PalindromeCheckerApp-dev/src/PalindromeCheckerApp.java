@@ -1,27 +1,38 @@
-import java.util.Scanner;
-public class PalindromeCheckerApp {
+```java
+// UC4: Convert string to char array and compare characters using two-pointer approach
+
+public class PalindromeChecker {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Palindrome Checker App");
+        // Original string
+        String word = "radar";
 
+        // Convert string to character array
+        char[] characters = word.toCharArray();
 
+        // Two pointers
+        int start = 0;
+        int end = characters.length - 1;
 
-        Scanner scanner = new Scanner(System.in);
+        boolean isPalindrome = true;
 
-        System.out.println("Enter a word:");
-        String word = scanner.nextLine();
-
-        System.out.println("You entered: " + word);
-
-        String reversed = new StringBuilder(word).reverse().toString();
-
-        if(word.equalsIgnoreCase(reversed)) {
-            System.out.println("It is a palindrome");
-        } else {
-            System.out.println("It is NOT a palindrome");
+        // Compare characters from start and end
+        while (start < end) {
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
+        // Display result
+        if (isPalindrome) {
+            System.out.println(word + " is a palindrome.");
+        } else {
+            System.out.println(word + " is not a palindrome.");
+        }
     }
-
 }
+```
