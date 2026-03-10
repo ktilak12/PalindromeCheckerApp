@@ -1,27 +1,39 @@
-import java.util.Scanner;
-public class PalindromeCheckerApp {
+```java
+// UC5: Use Stack to reverse characters and validate palindrome
+
+import java.util.Stack;
+
+public class PalindromeChecker {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Palindrome Checker App");
+        // Original string
+        String word = "madam";
 
+        // Create a stack to store characters
+        Stack<Character> stack = new Stack<>();
 
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a word:");
-        String word = scanner.nextLine();
-
-        System.out.println("You entered: " + word);
-
-        String reversed = new StringBuilder(word).reverse().toString();
-
-        if(word.equalsIgnoreCase(reversed)) {
-            System.out.println("It is a palindrome");
-        } else {
-            System.out.println("It is NOT a palindrome");
+        // Push characters of the string into the stack
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
         }
 
-    }
+        boolean isPalindrome = true;
 
+        // Pop characters from stack and compare with original string
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != stack.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print result
+        if (isPalindrome) {
+            System.out.println(word + " is a palindrome.");
+        } else {
+            System.out.println(word + " is not a palindrome.");
+        }
+    }
 }
+```
