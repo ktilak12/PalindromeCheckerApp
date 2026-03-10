@@ -1,27 +1,35 @@
-import java.util.Scanner;
-public class PalindromeCheckerApp {
+```java
+// UC9: Check palindrome using recursion
+
+public class PalindromeChecker {
+
+    // Recursive function to check palindrome
+    public static boolean isPalindrome(String str, int start, int end) {
+
+        // Base condition
+        if (start >= end) {
+            return true;
+        }
+
+        // Compare characters
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
+    }
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Palindrome Checker App");
+        String word = "madam";
 
-
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a word:");
-        String word = scanner.nextLine();
-
-        System.out.println("You entered: " + word);
-
-        String reversed = new StringBuilder(word).reverse().toString();
-
-        if(word.equalsIgnoreCase(reversed)) {
-            System.out.println("It is a palindrome");
+        // Call recursive function
+        if (isPalindrome(word, 0, word.length() - 1)) {
+            System.out.println(word + " is a palindrome.");
         } else {
-            System.out.println("It is NOT a palindrome");
+            System.out.println(word + " is not a palindrome.");
         }
-
     }
-
 }
+```
