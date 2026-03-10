@@ -1,27 +1,27 @@
-import java.util.Scanner;
-public class PalindromeCheckerApp {
+```java
+// UC2: Display whether a hardcoded string is a palindrome
+
+public class PalindromeChecker {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Palindrome Checker App");
+        // Hardcoded string
+        String word = "madam";
 
+        // Variable to store reversed string
+        String reversed = "";
 
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a word:");
-        String word = scanner.nextLine();
-
-        System.out.println("You entered: " + word);
-
-        String reversed = new StringBuilder(word).reverse().toString();
-
-        if(word.equalsIgnoreCase(reversed)) {
-            System.out.println("It is a palindrome");
-        } else {
-            System.out.println("It is NOT a palindrome");
+        // Reverse the string
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed = reversed + word.charAt(i);
         }
 
+        // Check if palindrome using if-else
+        if (word.equals(reversed)) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is NOT a Palindrome");
+        }
     }
-
 }
+```
